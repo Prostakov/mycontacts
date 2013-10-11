@@ -1,1 +1,6 @@
 <h1>Hello, World!</h1>
+<% if user_signed_in? %>
+  <p>The username is <%= current_user.username %>. <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></p>
+<% else %>
+  <p>You are not signed in. Do you wish to <%= link_to 'sign in', new_user_session_path %>?</p>
+<% end %>
