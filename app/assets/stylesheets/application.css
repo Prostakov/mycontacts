@@ -16,7 +16,18 @@
 	margin: 0;
 	padding: 0;
 }
-
+button {
+	background: white;
+	padding: 7px 10px;
+	border: 1px solid #ACACAC;
+	cursor: pointer;
+}
+button:hover {
+	border-color: #000;
+}
+button:active {
+	background: #eee;
+}
 .sign_out {
 	color: white;
 	float: right;

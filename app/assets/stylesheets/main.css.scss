@@ -24,3 +24,69 @@
 	color: #8A7B41;
 	text-shadow: 1px 1px #FAFFDF;
 }
+.contacts {
+	margin-top: 10px;
+	height: 500px;
+	border: 1px solid #bbb;
+	border-bottom-color: #999;
+	border-top-color: #eee;
+	background: -moz-linear-gradient(top, #ffffff 0%, #d9dfe2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#d9dfe2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#d9dfe2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%,#d9dfe2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%,#d9dfe2 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #ffffff 0%,#d9dfe2 100%); /* W3C */
+}
+#contacts_nav {
+	width: 350px;
+	float: left;
+}
+#contacts_info {
+	width: 600px;
+	float: right;
+}
+#search_contact>input[type="text"] {
+	width: 88%;
+	margin: 10px auto;
+	display: block;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border: 1px solid #999;
+	padding: 5px 10px;
+}
+#search_contact>input[type="text"]:focus {
+	outline: none;
+	border-color: brown;
+}
+#change_group {
+	margin-left: 10px;
+	width: 134px;
+}
+#contacts_list {
+	margin: 10px auto;
+	list-style: none;
+	width: 93%;
+	border: 1px solid #999;
+	height: 400px;
+	background: #fff;
+	overflow-y: scroll;
+}
+#contacts_list>li {
+	font-family: sans-serif;
+	padding: 15px 5px;
+	text-align: left;
+	font-size: 11px;
+	cursor: pointer;
+	background: -moz-linear-gradient(top, #ffffff 0%, #eee 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#d9dfe2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#d9dfe2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%,#d9dfe2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%,#d9dfe2 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #ececec 0%,#eee 100%); /* W3C */
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #bbb;
+}
+#contacts_list>li:hover {
+	background: linear-gradient(to bottom, #E9E3E3 0%,#EBE3E3 100%); /* W3C */
+}
