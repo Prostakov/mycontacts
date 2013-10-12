@@ -78,15 +78,20 @@
 	text-align: left;
 	font-size: 11px;
 	cursor: pointer;
-	background: -moz-linear-gradient(top, #ffffff 0%, #eee 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#d9dfe2)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #ffffff 0%,#d9dfe2 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #ffffff 0%,#d9dfe2 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #ffffff 0%,#d9dfe2 100%); /* IE10+ */
+	background: -moz-linear-gradient(top, #ececec 0%, #eee 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ececec), color-stop(100%,#eee)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ececec 0%,#eee 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ececec 0%,#eee 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ececec 0%,#eee 100%); /* IE10+ */
     background: linear-gradient(to bottom, #ececec 0%,#eee 100%); /* W3C */
     border-top: 1px solid #fff;
     border-bottom: 1px solid #bbb;
 }
 #contacts_list>li:hover {
+	background: -moz-linear-gradient(top, #E9E3E3 0%, #EBE3E3 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E9E3E3), color-stop(100%,#EBE3E3)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #E9E3E3 0%,#EBE3E3 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #E9E3E3 0%,#EBE3E3 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #E9E3E3 0%,#EBE3E3 100%); /* IE10+ */
 	background: linear-gradient(to bottom, #E9E3E3 0%,#EBE3E3 100%); /* W3C */
 }
