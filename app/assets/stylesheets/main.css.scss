@@ -1,3 +1,26 @@
-// Place all the styles related to the main controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.page-wrapper {
+	width: 980px;
+	margin: auto;
+}
+.header {
+	background: #333;
+	padding: 5px 0;
+	height: 16px;
+}
+.header p {
+	font-family: Verdana;
+	font-weight: bold;
+	color: #fff;
+	float: left;
+	display: inline;
+}
+.user-info {
+	padding: 5px;
+	background: #FFFEED;
+	border: 1px solid #ccc;
+	border-top: 0;
+	border-bottom-color: #888;
+	font-family: sans-serif;
+	color: #8A7B41;
+	text-shadow: 1px 1px #FAFFDF;
+}

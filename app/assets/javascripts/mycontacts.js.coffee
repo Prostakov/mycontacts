@@ -3,7 +3,16 @@ window.Mycontacts =
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: -> alert 'Hello from Backbone!'
+  initialize: -> 
+    #alert 'Hello from Backbone!'
 
 $(document).ready ->
+  notice_paragraph = $('p.notice')
+  alert_paragraph = $('p.alert')
+  unless notice_paragraph.text().length == 0
+    notice_paragraph.hide()
+    notice_paragraph.show()
+  unless alert_paragraph.text().length == 0
+    alert_paragraph.hide()
+    alert_paragraph.show()
   Mycontacts.initialize() unless $('#main').length == 0
