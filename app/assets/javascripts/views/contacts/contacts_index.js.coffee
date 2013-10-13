@@ -1,6 +1,8 @@
 class Mycontacts.Views.ContactsIndex extends Backbone.View
   className: 'contacts_container'
   template: JST['contacts/index']
+  events:
+    'click #create_contact': 'createContact'
 
   initialize: ->
     @collection.on('add', @appendContact)
@@ -18,3 +20,6 @@ class Mycontacts.Views.ContactsIndex extends Backbone.View
   removeContact: (contact) =>
     id = contact.get('id')
     @$("li[data-id='#{id}']").remove()
+
+  createContact: ->
+    Backbone.history.navigate("contacts/new", true)

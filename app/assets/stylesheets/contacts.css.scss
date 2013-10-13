@@ -36,3 +36,41 @@
 		padding: 1px 3px;
 	}
 }
+
+.contact_new {
+	div {
+		padding: 5px 10px;
+	}
+	h1 {
+		padding: 10px;
+		font-family: Arial;
+		font-weight: normal;
+		font-size: 20px;
+		color: #ACACAC;
+	}
+	label {
+		padding: 1px 10px;
+		font-size: 10px;
+		color: #555;
+	}
+	input[type="text"] {
+		border: 1px solid #777;
+		-moz-border-radius: 15px;
+		-webkit-border-radius: 15px;
+		border-radius: 15px;
+		font-size: 18px;
+		padding: 2px 15px;
+		width: 250px;
+	}
+	input[type="text"]:focus {
+		outline: none;
+		border-color: brown;
+	}
+	input[type="submit"] {
+		font-family: Arial;
+		font-weight: normal;
+		font-size: 15px;
+		padding: 3px 10px 2px;
+		margin-top: 10px;
+	}
+}

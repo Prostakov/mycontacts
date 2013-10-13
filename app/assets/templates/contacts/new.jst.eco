@@ -1,0 +1,36 @@
+<h1>Create new contact</h1>
+<form>
+  <div>
+    <label for="new_contact_first_name">First Name</label>
+    <br />
+    <input id="new_contact_first_name" type="text" />
+  </div>
+
+  <div>
+    <label for="new_contact_middle_name">Middle Name</label>
+    <br />
+    <input id="new_contact_middle_name" type="text" />
+  </div>
+
+  <div>
+    <label for="new_contact_last_name">Last Name</label>
+    <br />
+    <input id="new_contact_last_name" type="text" />
+  </div>
+
+  <div>
+    <label for="new_contact_phone">Phone</label>
+    <br />
+    <input id="new_contact_phone" type="text" />
+  </div>
+
+  <div>
+    <label for="new_contact_email">Email Address</label>
+    <br />
+    <input id="new_contact_email" type="text" />
+  </div>
+
+  <div>
+    <input type="submit" value="Create Contact" />
+  </div>
+</form>
