@@ -63,7 +63,7 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
       	  $('#main_container').html(view.render().el)
       	  # ExecJS::RuntimeError in Main#index
           #model = @collection.get(id)
-          #view = new Mycontacts.Views.ContactEdit(model: @model)
+          #view = new Mycontacts.Views.ContactEdit(model: model, collection: @collection)
           #$('#contacts_info').html(view.render().el)
         error: =>
           console.log "error!"
