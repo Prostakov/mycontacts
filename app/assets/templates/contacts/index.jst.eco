@@ -4,7 +4,9 @@
     <input type="submit" value="Search" style="display:none" />
   </form>
   <div>
-    <button id="change_group">All Contacts</button>
+    <select id="change_group">
+      <option>All Contacts</option>
+    </select>
     <button id="create_contact" class="create_button">New Contact</button>
     <button id="create_group" class="create_button">New Group</button>
   </div>

@@ -68,6 +68,13 @@
 #change_group {
 	margin-left: 10px;
 	width: 134px;
+	height: 30px;
+	background: #fff;
+	padding: 0 5px;
+	cursor: pointer;
+}
+#change_group:focus {
+	outline: none;
 }
 #contacts_list {
 	margin: 10px auto;
