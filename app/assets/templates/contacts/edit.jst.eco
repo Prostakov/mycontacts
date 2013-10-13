@@ -1,4 +1,4 @@
-<h1>Edit contact #<%= @contact.get('id') %></h1>
+<h1 data-id="<%= @contact.get('id') %>">Edit contact #<%= @contact.get('id') %></h1>
 <form>
   <div>
     <label for="edit_contact_first_name">First Name</label>

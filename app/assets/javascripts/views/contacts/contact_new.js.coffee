@@ -21,7 +21,6 @@ class Mycontacts.Views.ContactNew extends Backbone.View
   	@collection.create attr,
   	  wait: true
   	  success: (model, response, options) =>
-  	  	@$('form')[0].reset()
   	  	Backbone.history.navigate("contacts/#{model.get('id')}", true)
   	  error: =>
   	  	alert "Error!"

@@ -29,7 +29,7 @@ class ContactsController < ApplicationController
   def update
   	contact = Contact.find(params[:id])
   	if user_signed_in? && current_user == contact.user
-   	  respond_with contact.update(params[:contact])
+   	  respond_with contact.update_attributes(params[:contact])
    	else
    	  respond_with "Permission denied!"
    	end

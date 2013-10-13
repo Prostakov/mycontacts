@@ -69,5 +69,5 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
           console.log "error!"
     else
       model = @collection.get(id)
-      view = new Mycontacts.Views.ContactEdit(model: model)
+      view = new Mycontacts.Views.ContactEdit(model: model, collection: @collection)
       $('#contacts_info').html(view.render().el)

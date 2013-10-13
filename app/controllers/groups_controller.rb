@@ -29,7 +29,7 @@ class GroupsController < ApplicationController
   def update
   	group = Group.find(params[:id])
   	if user_signed_in? && current_user == group.user
-   	  respond_with group.update(params[:group])
+   	  respond_with group.update_attributes(params[:group])
    	else
    	  respond_with "Permission denied!"
    	end
