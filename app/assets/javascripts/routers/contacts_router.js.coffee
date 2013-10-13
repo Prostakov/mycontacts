@@ -2,6 +2,7 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
   routes:
   	'': 'index'
   	'contacts/:id': 'showContact'
+  	'contacts/:id/edit': 'editContact'
 
   initialize: ->
   	@collection = new Mycontacts.Collections.Contacts()
@@ -11,6 +12,8 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
       success: =>
       	view = new Mycontacts.Views.ContactsIndex(collection: @collection)
       	$('#main_container').html(view.render().el)
+      error: =>
+          console.log "error!"
 
   showContact: (id) ->
   	# Fetching collection if not already fetched
@@ -23,7 +26,12 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
       	  #model = @collection.get(id)
           #view = new Mycontacts.Views.ContactShow(model: model)
           #$('#contacts_info').html(view.render().el)
+        error: =>
+          console.log "error!"
     else
       model = @collection.get(id)
       view = new Mycontacts.Views.ContactShow(model: model)
       $('#contacts_info').html(view.render().el)
+
+  editContact: (id) ->
+  	alert "Editing Contact #{id}"

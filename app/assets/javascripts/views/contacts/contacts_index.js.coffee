@@ -4,6 +4,7 @@ class Mycontacts.Views.ContactsIndex extends Backbone.View
 
   initialize: ->
   	@collection.on('add', @appendContact)
+    #@collection.on('remove', @render, this)
 
   render: ->
   	$(@el).html(@template())
