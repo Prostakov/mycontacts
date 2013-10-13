@@ -14,6 +14,12 @@
 	float: left;
 	display: inline;
 }
+.header p.sign_out {
+	font-weight: normal; 
+	font-size: 13px;
+	float: right;
+	padding: 0 10px;
+}
 #main_container>h1 {
 	font-weight: normal;
 	text-align: center;
@@ -22,16 +28,6 @@
 #main_container>img {
 	display: block;
 	margin: 20px auto;
-}
-.user-info {
-	padding: 5px;
-	background: #FFFEED;
-	border: 1px solid #ccc;
-	border-top: 0;
-	border-bottom-color: #888;
-	font-family: sans-serif;
-	color: #8A7B41;
-	text-shadow: 1px 1px #FAFFDF;
 }
 .contacts {
 	margin-top: 10px;

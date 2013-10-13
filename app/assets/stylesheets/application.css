@@ -37,7 +37,7 @@ button.small_button {
 	float: right;
 	font-family: sans-serif;
 }
-.sign_out:hover{
+a.sign_out:hover{
 	color: red;
 }
 .notice {

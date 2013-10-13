@@ -10,7 +10,10 @@
   <div class="header">
   	<div class="page-wrapper">
   	  <p>CONTACTS</p>
-  	  <%= link_to('Sign Out', destroy_user_session_path, method: :delete, class: 'sign_out') if user_signed_in? %>
+      <% if user_signed_in? %>
+  	    <%= link_to('Sign Out', destroy_user_session_path, method: :delete, class: 'sign_out') %>
+        <p class="sign_out">Signed in under <b><%= current_user.username %></b></p>
+      <% end %>
   	</div>
   </div>
   <div class="page-wrapper">
