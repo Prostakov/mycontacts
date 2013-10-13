@@ -1,0 +1,26 @@
+<h1>Showing contact #<%= @contact.get('id') %></h1>
+<button class="small_button edit">EDIT</button>
+<button class="small_button delete">DELETE</button>
+<h2>
+  <%= @contact.get('first_name') %>
+  <%= @contact.get('middle_name') %>
+  <%= @contact.get('last_name') %>
+</h2>
+
+<% if @contact.get('phone') == null: %>
+  <h3>Telephone: <span>none</span></h3>
+<% else: %>
+  <h3>Telephone: <span><%= @contact.get('phone') %> </span></h3>
+<% end %>
+
+<% if @contact.get('email') == null: %>
+  <h3>Email: <span>none</span></h3>
+<% else: %>
+  <h3>Email: <span><%= @contact.get('email') %> </span></h3>
+<% end %>
+
+<% if @contact.get('group_id') == null: %>
+  <h3>Group: <span class="group">All Contacts</span></h3>
+<% else: %>
+  <h3>Group: <span><%= @contact.get('group_id') %> </span></h3>
+<% end %>

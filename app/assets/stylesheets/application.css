@@ -18,7 +18,7 @@
 }
 button {
 	background: white;
-	padding: 7px 10px;
+	padding: 7px;
 	border: 1px solid #ACACAC;
 	cursor: pointer;
 }
@@ -27,6 +27,10 @@ button:hover {
 }
 button:active {
 	background: #eee;
+}
+button.small_button {
+	padding: 2px 5px;
+	font-size: 10px;
 }
 .sign_out {
 	color: white;

@@ -10,4 +10,4 @@ class Mycontacts.Views.Contact extends Backbone.View
   	@
 
   showContact: ->
-  	console.log @model.get('id')
+  	Backbone.history.navigate("contacts/#{@model.get('id')}", true)

@@ -1,3 +1,38 @@
-// Place all the styles related to the contacts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.contact_show {
+	font-family: sans-serif;
+	button {
+		margin: 2px 0 10px;
+	}
+	.edit {
+		margin-left: 10px;
+	}
+	h1 {
+		text-transform: uppercase;
+		color: #ACACAC;
+		font-weight: normal;
+		font-size: 15px;
+		padding: 5px 10px;
+	}
+	h2 {
+		text-transform: uppercase;
+		color: #947C7C;
+		padding: 0 10px 10px;
+		font-size: 22px;
+		font-weight: normal;
+	}
+	h3 {
+		padding: 5px 10px;
+		font-size: 15px;
+		color: #444;
+	}
+	span {
+		color: #999;
+	}
+	span.group {
+		background: #FAF8DD;
+		border: 1px solid #8A7B41;
+		font-weight: normal;
+		font-size: 14px;
+		padding: 1px 3px;
+	}
+}
