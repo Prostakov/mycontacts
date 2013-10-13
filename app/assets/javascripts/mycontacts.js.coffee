@@ -4,7 +4,8 @@ window.Mycontacts =
   Views: {}
   Routers: {}
   initialize: -> 
-    #alert 'Hello from Backbone!'
+    new Mycontacts.Routers.Contacts()
+    Backbone.history.start()
 
 $(document).ready ->
   notice_paragraph = $('p.notice')
@@ -15,4 +16,4 @@ $(document).ready ->
   unless alert_paragraph.text().length == 0
     alert_paragraph.hide()
     alert_paragraph.show()
-  Mycontacts.initialize() unless $('#main').length == 0
+  Mycontacts.initialize()# unless $('#main').length == 0

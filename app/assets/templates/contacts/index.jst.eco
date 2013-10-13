@@ -1,0 +1,15 @@
+<div class="contacts" id="contacts_nav">
+  <form id="search_contact">
+    <input type="text" placeholder="Search contact" />
+    <input type="submit" value="Search" style="display:none" />
+  </form>
+  <div>
+    <button id="change_group">All Contacts</button>
+    <button id="create_contact" class="create_button">New Contact</button>
+    <button id="create_group" class="create_button">New Group</button>
+  </div>
+  <ul id="contacts_list">
+  </ul>
+</div>
+<div class="contacts" id="contacts_info">
+</div>
