@@ -1,0 +1,36 @@
+<h1>Edit contact #<%= @contact.get('id') %></h1>
+<form>
+  <div>
+    <label for="edit_contact_first_name">First Name</label>
+    <br />
+    <input id="edit_contact_first_name" type="text" value="<%= @contact.get('first_name') %>" />
+  </div>
+
+  <div>
+    <label for="edit_contact_middle_name">Middle Name</label>
+    <br />
+    <input id="edit_contact_middle_name" type="text" value="<%= @contact.get('middle_name') %>" />
+  </div>
+
+  <div>
+    <label for="edit_contact_last_name">Last Name</label>
+    <br />
+    <input id="edit_contact_last_name" type="text" value="<%= @contact.get('last_name') %>" />
+  </div>
+
+  <div>
+    <label for="edit_contact_phone">Phone</label>
+    <br />
+    <input id="edit_contact_phone" type="text" value="<%= @contact.get('phone') %>" />
+  </div>
+
+  <div>
+    <label for="edit_contact_email">Email Address</label>
+    <br />
+    <input id="edit_contact_email" type="text" value="<%= @contact.get('email') %>" />
+  </div>
+
+  <div>
+    <input type="submit" value="Update Contact" />
+  </div>
+</form>
