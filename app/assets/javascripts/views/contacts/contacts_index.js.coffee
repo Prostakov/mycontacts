@@ -3,8 +3,8 @@ class Mycontacts.Views.ContactsIndex extends Backbone.View
   template: JST['contacts/index']
 
   initialize: ->
-  	@collection.on('add', @appendContact)
-    #@collection.on('remove', @render, this)
+    @collection.on('add', @appendContact)
+    @collection.on('remove', @removeContact)
 
   render: ->
   	$(@el).html(@template())
@@ -14,3 +14,7 @@ class Mycontacts.Views.ContactsIndex extends Backbone.View
   appendContact: (contact) =>
   	view = new Mycontacts.Views.Contact(model: contact)
   	@$('#contacts_list').append(view.render().el)
+
+  removeContact: (contact) =>
+    id = contact.get('id')
+    @$("li[data-id='#{id}']").remove()

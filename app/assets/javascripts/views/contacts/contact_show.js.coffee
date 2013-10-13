@@ -6,6 +6,9 @@ class Mycontacts.Views.ContactShow extends Backbone.View
   	'click button.edit': 'editContact'
   	'click button.delete': 'destroyContact'
 
+  initialize: ->
+  	@model.on('destroy', @removeView)
+
   render: ->
   	$(@el).html(@template(contact: @model))
   	@
@@ -33,3 +36,6 @@ class Mycontacts.Views.ContactShow extends Backbone.View
             dialog.dialog("close")
         close: (event, ui) ->
           $(this).remove();
+
+  removeView: =>
+  	$(@el).remove()

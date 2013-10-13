@@ -7,6 +7,7 @@ class Mycontacts.Views.Contact extends Backbone.View
 
   render: ->
   	$(@el).html(@template(contact: @model))
+  	$(@el).attr('data-id', @model.get('id'))
   	@
 
   showContact: ->
