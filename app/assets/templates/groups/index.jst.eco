@@ -1,2 +1,3 @@
 <h1>SHOWING ALL GROUPS</h1>
+<button class="create_group">Create Group</button>
 <ul></ul>

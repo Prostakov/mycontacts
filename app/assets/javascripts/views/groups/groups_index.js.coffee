@@ -1,6 +1,8 @@
 class Mycontacts.Views.GroupsIndex extends Backbone.View
   className: 'groups_show'
   template: JST['groups/index']
+  events:
+  	'click button.create_group': 'createGroup'
 
   render: ->
   	$(@el).html(@template())
@@ -10,3 +12,6 @@ class Mycontacts.Views.GroupsIndex extends Backbone.View
   appendGroup: (group) ->
     view = new Mycontacts.Views.Group(collection: @collection, model: group)
     @$('ul').append(view.render().el)
+
+  createGroup: ->
+  	Backbone.history.navigate("groups/new", true)
