@@ -116,11 +116,15 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
         success: => 
           groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groups_collection)
           groups_list_view.render().el
-          groups_index_view = new Mycontacts.Views.GroupsIndex(collection: @groups_collection)
+          groups_index_view = new Mycontacts.Views.GroupsIndex
+            collection: @collection
+            groups_collection: @groups_collection
           $('#contacts_info').html(groups_index_view.render().el)
         error: => console.log "Error while loading data!"
     else
-      groups_index_view = new Mycontacts.Views.GroupsIndex(collection: @groups_collection)
+      groups_index_view = new Mycontacts.Views.GroupsIndex
+        collection: @collection
+        groups_collection: @groups_collection
       $('#contacts_info').html(groups_index_view.render().el)
 
   editGroup: (id) ->
