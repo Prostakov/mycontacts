@@ -5,7 +5,7 @@
   </form>
   <div>
     <select id="change_group">
-      <option>All Contacts</option>
+      <option data-id="0">All Contacts</option>
     </select>
     <button id="create_contact" class="manage_button">New Contact</button>
     <button id="show_groups" class="manage_button">Show Groups</button>

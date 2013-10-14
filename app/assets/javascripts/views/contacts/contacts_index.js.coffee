@@ -4,6 +4,7 @@ class Mycontacts.Views.ContactsIndex extends Backbone.View
   events:
     'click #create_contact': 'createContact'
     'click #show_groups': 'showGroups'
+    'change select#change_group': 'groupsFilter'
 
   initialize: ->
     @collection.on('add', @appendContact)
@@ -27,3 +28,13 @@ class Mycontacts.Views.ContactsIndex extends Backbone.View
 
   showGroups: ->
     Backbone.history.navigate("groups", true)
+
+  groupsFilter: ->
+    id = @$('select#change_group').find(':selected').data('id')
+    @$('li').show()
+    return if id == 0
+    @collection.each(@filterModels)
+
+  filterModels: (model) =>
+    unless model.get('group_id') == @$('select#change_group').find(':selected').data('id')
+      @$("li[data-id='#{model.get('id')}']").hide()
