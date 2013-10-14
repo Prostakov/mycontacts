@@ -21,8 +21,10 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
         view = new Mycontacts.Views.ContactsIndex(collection: @collection)
         $('#main_container').html(view.render().el)
       error: => console.log "Error while loading contacts!"
-    @groups_collection.fetch
-      error: => console.log "Error while loading data!"
+    if @groups_collection.length == 0
+      @groups_collection.fetch
+        success: => console.log "Group collection loaded!"
+        error: => console.log "Error while loading data!"
 
   showContact: (id) ->
     # Fetching collection if not already fetched
@@ -40,6 +42,10 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
       model = @collection.get(id)
       show_contact_view = new Mycontacts.Views.ContactShow(model: model)
       $('#contacts_info').html(show_contact_view.render().el)
+    if @groups_collection.length == 0
+      @groups_collection.fetch
+        success: => console.log "Group collection loaded!"
+        error: => console.log "Error while loading data!"
 
   createContact: ->
     # Fetching collection if not already fetched
@@ -55,6 +61,10 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
     else
       new_contact_view = new Mycontacts.Views.ContactNew(collection: @collection)
       $('#contacts_info').html(new_contact_view.render().el)
+    if @groups_collection.length == 0
+      @groups_collection.fetch
+        success: => console.log "Group collection loaded!"
+        error: => console.log "Error while loading data!"
 
   editContact: (id) ->
     # Fetching collection if not already fetched
@@ -72,6 +82,10 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
       model = @collection.get(id)
       edit_contact_view = new Mycontacts.Views.ContactEdit(model: model, collection: @collection)
       $('#contacts_info').html(edit_contact_view.render().el)
+    if @groups_collection.length == 0
+      @groups_collection.fetch
+        success: => console.log "Group collection loaded!"
+        error: => console.log "Error while loading data!"
 
   editGroups: ->
     view = new Mycontacts.Views.GroupsIndex(collection: @groups_collection)
