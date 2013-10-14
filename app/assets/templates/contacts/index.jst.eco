@@ -7,8 +7,9 @@
     <select id="change_group">
       <option>All Contacts</option>
     </select>
-    <button id="create_contact" class="create_button">New Contact</button>
-    <button id="create_group" class="create_button">New Group</button>
+    <button id="create_contact" class="manage_button">New Contact</button>
+    <button id="create_group" class="manage_button">New Group</button>
+    <button id="edit_groups" class="manage_button">Edit Groups</button>
   </div>
   <ul id="contacts_list">
   </ul>

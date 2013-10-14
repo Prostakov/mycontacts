@@ -33,6 +33,10 @@ button.small_button {
 	padding: 2px 5px;
 	font-size: 10px;
 }
+button.manage_button {
+	padding: 7px 2px;
+	font-size: 11px;
+}
 .sign_out {
 	color: white;
 	float: right;
