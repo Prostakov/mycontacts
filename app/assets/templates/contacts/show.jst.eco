@@ -7,20 +7,22 @@
   <%= @contact.get('last_name') %>
 </h2>
 
-<% if @contact.get('phone') == null: %>
+<% if @contact.get('phone').length == 0: %>
   <h3>Telephone: <span>none</span></h3>
 <% else: %>
   <h3>Telephone: <span><%= @contact.get('phone') %> </span></h3>
 <% end %>
 
-<% if @contact.get('email') == null: %>
+<% if @contact.get('email').length == 0: %>
   <h3>Email: <span>none</span></h3>
 <% else: %>
   <h3>Email: <span><%= @contact.get('email') %> </span></h3>
 <% end %>
 
-<% if @contact.get('group_id') == null: %>
-  <h3>Group: <span class="group">All Contacts</span></h3>
-<% else: %>
-  <h3>Group: <span><%= @contact.get('group_id') %> </span></h3>
-<% end %>
+<h3>Group: 
+  <span class="group">
+    <select class="contact_group">
+      <option data-id="0">All Contacts</option>
+    </select>
+  </span>
+</h3>

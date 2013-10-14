@@ -3,18 +3,37 @@ class Mycontacts.Views.ContactShow extends Backbone.View
   template: JST['contacts/show']
 
   events:
-  	'click button.edit': 'editContact'
-  	'click button.delete': 'destroyContact'
+    'click button.edit': 'editContact'
+    'click button.delete': 'destroyContact'
+    'change select.contact_group': 'changeGroup'
 
   initialize: ->
-  	@model.on('destroy', @removeView)
+    @model.on('destroy', @removeView)
 
   render: ->
-  	$(@el).html(@template(contact: @model))
-  	@
+    $(@el).html(@template(contact: @model))
+    @options.groups_collection.each(@appendOptionsForGroup, this)
+    @$("select.contact_group>option[data-id='#{@model.get('group_id')}']").attr('selected','selected')
+    this
+
+  changeGroup: ->
+    id = @$('select.contact_group').find(':selected').data('id')
+    # Updating model and collection with new group
+    attr = { group_id: id }
+    @model.save attr,
+      url: "/api/contacts/#{@model.get('id')}"
+      success: (model, response, options) =>
+        @collection.set model,
+          remove: false
+      error: =>
+        console.log "Error!"
+
+  appendOptionsForGroup: (group) ->
+    view = new Mycontacts.Views.GroupListItem(model: group)
+    @$('select.contact_group').append(view.render().el)
 
   editContact: ->
-  	Backbone.history.navigate("contacts/#{@model.get('id')}/edit", true)
+    Backbone.history.navigate("contacts/#{@model.get('id')}/edit", true)
 
   destroyContact: ->
     dialog = $('<div></div>').appendTo(document.body).html('<div><h4>Are you sure?</h4></div>')
@@ -38,4 +57,4 @@ class Mycontacts.Views.ContactShow extends Backbone.View
           $(this).remove();
 
   removeView: =>
-  	$(@el).remove()
+    $(@el).remove()

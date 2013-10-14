@@ -30,6 +30,12 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
         error: => console.log "Error while loading data!"
 
   showContact: (id) ->
+    if @groups_collection.length == 0
+      @groups_collection.fetch
+        success: =>
+          groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groups_collection)
+          groups_list_view.render().el    
+        error: => console.log "Error while loading data!"
     # Fetching collection if not already fetched
     if @collection.length == 0
       @collection.fetch
@@ -37,20 +43,20 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
           view = new Mycontacts.Views.ContactsIndex(collection: @collection)
           $('#main_container').html(view.render().el)
           model = @collection.get(id)
-          show_contact_view = new Mycontacts.Views.ContactShow(model: model)
+          show_contact_view = new Mycontacts.Views.ContactShow
+            model: model
+            collection: @collection
+            groups_collection: @groups_collection
           $('#contacts_info').html(show_contact_view.render().el)
         error: =>
           console.log "error!"
     else
       model = @collection.get(id)
-      show_contact_view = new Mycontacts.Views.ContactShow(model: model)
+      show_contact_view = new Mycontacts.Views.ContactShow
+        model: model
+        collection: @collection
+        groups_collection: @groups_collection
       $('#contacts_info').html(show_contact_view.render().el)
-    if @groups_collection.length == 0
-      @groups_collection.fetch
-        success: =>
-          groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groups_collection)
-          groups_list_view.render().el    
-        error: => console.log "Error while loading data!"
 
   createContact: ->
     # Fetching collection if not already fetched
