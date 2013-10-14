@@ -3,7 +3,7 @@ class Mycontacts.Views.GroupListItem extends Backbone.View
   template: JST['groups/group_list_item']
 
   initialize: ->
-  	@model.on('change', @render, this)
+  	@model.on('change:name', @render, this)
   	@model.on('destroy', @remove, this)
 
   render: ->

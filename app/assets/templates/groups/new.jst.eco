@@ -1,0 +1,12 @@
+<h1>Create Group</h1>
+<form>
+  <div>
+    <label for="edit_group_name">Name</label>
+    <br />
+    <input id="group_name" type="text" value="" />
+  </div>
+
+  <div>
+    <input type="submit" value="Create Group" />
+  </div>
+</form>

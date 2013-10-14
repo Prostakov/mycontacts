@@ -1,6 +1,9 @@
 class Mycontacts.Views.GroupsListIndex extends Backbone.View
   el: '#change_group'
 
+  initialize: ->
+  	@collection.on('add', @appendGroup, this)
+
   render: ->
     @collection.each(@appendGroup, this)
     this

@@ -1,7 +1,7 @@
 <h1 data-id="<%= @group.get('id') %>">Edit group #<%= @group.get('id') %></h1>
 <form>
   <div>
-    <label for="edit_group_name">First Name</label>
+    <label for="edit_group_name">Name</label>
     <br />
     <input id="edit_group_name" type="text" value="<%= @group.get('name') %>" />
   </div>

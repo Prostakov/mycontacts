@@ -135,4 +135,23 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
       $('#contacts_info').html(edit_group_view.render().el)
 
   createGroup: ->
-    console.log "Group creating..."
+    # Fetching collection if not already fetched
+    if @collection.length == 0
+      @collection.fetch
+        success: (new_collection, response, options) =>
+          view = new Mycontacts.Views.ContactsIndex(collection: @collection)
+          $('#main_container').html(view.render().el)
+        error: =>
+          console.log "error!"
+    if @groups_collection.length == 0
+      @groups_collection.fetch
+        success: => 
+          console.log "Group collection loaded!"
+          groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groups_collection)
+          groups_list_view.render().el
+          new_group_view = new Mycontacts.Views.GroupNew(collection: @groups_collection)
+          $('#contacts_info').html(new_group_view.render().el)
+        error: => console.log "Error while loading data!"
+    else
+      new_group_view = new Mycontacts.Views.GroupNew(collection: @groups_collection)
+      $('#contacts_info').html(new_group_view.render().el)
