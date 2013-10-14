@@ -1,15 +1,16 @@
 class Mycontacts.Views.Group extends Backbone.View
-  tagName: 'option'
+  tagName: 'li'
   template: JST['groups/group']
-
-  initialize: ->
-  	@model.on('change', @render, this)
-  	@model.on('destroy', @remove, this)
+  events:
+  	'click .edit_group': 'editGroup'
+  	'click .destroy_group': 'destroyGroup'
 
   render: ->
-    $(@el).html(@template(group: @model))
-    $(@el).attr('data-id',@model.get('id'))
-    this
+  	$(@el).html(@template(group: @model))
+  	this
 
-  remove: ->
-  	$(@el).remove()
+  editGroup: ->
+  	Backbone.history.navigate("groups/#{@model.get('id')}/edit", true)
+
+  destroyGroup: ->
+    console.log 'destroying...'

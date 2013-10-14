@@ -1,3 +1,32 @@
-// Place all the styles related to the groups controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.groups_show {
+	h1 {
+		font-family: sans-serif;
+		color: #B97474;
+		font-weight: normal;
+		padding: 10px;
+	}
+	ul {
+		list-style: none;
+		padding: 10px;
+		overflow-y: scroll;
+		height: 425px;
+		li {
+			font-size: 18px;
+			font-family: Verdana;
+			overflow: hidden;
+			border-bottom: 1px solid #CFBDBD;
+			padding: 5px;
+			margin-top: 5px;
+			button {
+				float: right;
+				font-size: 12px;
+				margin: 0 5px;
+				padding: 5px;
+			}
+			p {
+				display: inline;
+				float: left;
+			}
+		}
+	}
+}

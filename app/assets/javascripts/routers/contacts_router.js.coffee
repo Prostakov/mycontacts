@@ -5,8 +5,9 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
     'contacts/new': 'createContact'
     'contacts/:id': 'showContact'
     'contacts/:id/edit': 'editContact'
-    'groups/manage': 'manageGroups'
+    'groups/:id/edit': 'editGroup'
     'groups/new': 'createGroup'
+    'groups': 'showGroups'
 
   initialize: ->
     @collection = new Mycontacts.Collections.Contacts()
@@ -87,7 +88,7 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
         success: => console.log "Group collection loaded!"
         error: => console.log "Error while loading data!"
 
-  manageGroups: ->
+  showGroups: ->
     # Fetching collection if not already fetched
     if @collection.length == 0
       @collection.fetch
@@ -100,14 +101,38 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
       @groups_collection.fetch
         success: => 
           console.log "Group collection loaded!"
-          view = new Mycontacts.Views.GroupsIndex(collection: @groups_collection)
-          view.render().el
-          manage_groups_view = new Mycontacts.Views.GroupsManage(collection: @groups_collection)
-          $('#contacts_info').html(manage_groups_view.render().el)
+          groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groups_collection)
+          groups_list_view.render().el
+          groups_index_view = new Mycontacts.Views.GroupsIndex(collection: @groups_collection)
+          $('#contacts_info').html(groups_index_view.render().el)
         error: => console.log "Error while loading data!"
     else
-      view = new Mycontacts.Views.GroupsIndex(collection: @groups_collection)
-      $('#contacts_info').html(view.render().el)
+      groups_index_view = new Mycontacts.Views.GroupsIndex(collection: @groups_collection)
+      $('#contacts_info').html(groups_index_view.render().el)
+
+  editGroup: (id) ->
+    # Fetching collection if not already fetched
+    if @collection.length == 0
+      @collection.fetch
+        success: (new_collection, response, options) =>
+          view = new Mycontacts.Views.ContactsIndex(collection: @collection)
+          $('#main_container').html(view.render().el)
+        error: =>
+          console.log "error!"
+    if @groups_collection.length == 0
+      @groups_collection.fetch
+        success: => 
+          console.log "Group collection loaded!"
+          groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groups_collection)
+          groups_list_view.render().el
+          model = @groups_collection.get(id)
+          edit_group_view = new Mycontacts.Views.GroupEdit(model: model, collection: @groups_collection)
+          $('#contacts_info').html(edit_group_view.render().el)
+        error: => console.log "Error while loading data!"
+    else
+      model = @groups_collection.get(id)
+      edit_group_view = new Mycontacts.Views.GroupEdit(model: model, collection: @groups_collection)
+      $('#contacts_info').html(edit_group_view.render().el)
 
   createGroup: ->
     console.log "Group creating..."

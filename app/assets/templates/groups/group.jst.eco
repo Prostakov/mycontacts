@@ -1,1 +1,3 @@
-<%= @group.get('name') %>
+<p><%= @group.get('name') %></p>
+<button class="destroy_group">DELETE</button>
+<button class="edit_group">EDIT</button>
