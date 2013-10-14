@@ -5,7 +5,7 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
     'contacts/new': 'createContact'
     'contacts/:id': 'showContact'
     'contacts/:id/edit': 'editContact'
-    'groups/edit': 'editGroups'
+    'groups/manage': 'manageGroups'
     'groups/new': 'createGroup'
 
   initialize: ->
@@ -87,9 +87,27 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
         success: => console.log "Group collection loaded!"
         error: => console.log "Error while loading data!"
 
-  editGroups: ->
-    view = new Mycontacts.Views.GroupsIndex(collection: @groups_collection)
-    $('#contacts_info').html(view.render().el)
+  manageGroups: ->
+    # Fetching collection if not already fetched
+    if @collection.length == 0
+      @collection.fetch
+        success: (new_collection, response, options) =>
+          view = new Mycontacts.Views.ContactsIndex(collection: @collection)
+          $('#main_container').html(view.render().el)
+        error: =>
+          console.log "error!"
+    if @groups_collection.length == 0
+      @groups_collection.fetch
+        success: => 
+          console.log "Group collection loaded!"
+          view = new Mycontacts.Views.GroupsIndex(collection: @groups_collection)
+          view.render().el
+          manage_groups_view = new Mycontacts.Views.GroupsManage(collection: @groups_collection)
+          $('#contacts_info').html(manage_groups_view.render().el)
+        error: => console.log "Error while loading data!"
+    else
+      view = new Mycontacts.Views.GroupsIndex(collection: @groups_collection)
+      $('#contacts_info').html(view.render().el)
 
   createGroup: ->
     console.log "Group creating..."

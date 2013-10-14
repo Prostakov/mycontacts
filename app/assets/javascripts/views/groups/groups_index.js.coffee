@@ -1,7 +1,10 @@
 class Mycontacts.Views.GroupsIndex extends Backbone.View
-  className: 'groups_container'
-  template: JST['groups/index']
+  el: '#change_group'
 
   render: ->
-    $(@el).html(@template())
+    @collection.each(@appendGroup, this)
     this
+
+  appendGroup: (group) ->
+    view = new Mycontacts.Views.Group(model: group)
+    $(@el).append(view.render().el)
