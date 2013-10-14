@@ -8,8 +8,7 @@
       <option>All Contacts</option>
     </select>
     <button id="create_contact" class="manage_button">New Contact</button>
-    <button id="create_group" class="manage_button">New Group</button>
-    <button id="edit_groups" class="manage_button">Edit Groups</button>
+    <button id="show_groups" class="manage_button">Show Groups</button>
   </div>
   <ul id="contacts_list">
   </ul>

@@ -3,8 +3,7 @@ class Mycontacts.Views.ContactsIndex extends Backbone.View
   template: JST['contacts/index']
   events:
     'click #create_contact': 'createContact'
-    'click #create_group': 'createGroup'
-    'click #edit_groups': 'editGroups'
+    'click #show_groups': 'showGroups'
 
   initialize: ->
     @collection.on('add', @appendContact)
@@ -26,5 +25,5 @@ class Mycontacts.Views.ContactsIndex extends Backbone.View
   createContact: ->
     Backbone.history.navigate("contacts/new", true)
 
-  createGroup: ->
-    Backbone.history.navigate("groups/new", true)
+  showGroups: ->
+    Backbone.history.navigate("groups", true)
