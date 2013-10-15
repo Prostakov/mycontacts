@@ -26,7 +26,7 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
       @groups_collection.fetch
         success: =>
           groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groups_collection)
-          groups_list_view.render().el          
+          groups_list_view.render()        
         error: => console.log "Error while loading data!"
 
   showContact: (id) ->
@@ -34,7 +34,7 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
       @groups_collection.fetch
         success: =>
           groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groups_collection)
-          groups_list_view.render().el    
+          groups_list_view.render()
         error: => console.log "Error while loading data!"
     # Fetching collection if not already fetched
     if @collection.length == 0
@@ -76,7 +76,7 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
       @groups_collection.fetch
         success: =>
           groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groups_collection)
-          groups_list_view.render().el    
+          groups_list_view.render()
         error: => console.log "Error while loading data!"
 
   editContact: (id) ->
@@ -99,7 +99,7 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
       @groups_collection.fetch
         success: =>
           groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groups_collection)
-          groups_list_view.render().el    
+          groups_list_view.render()  
         error: => console.log "Error while loading data!"
 
   showGroups: ->
@@ -115,7 +115,7 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
       @groups_collection.fetch
         success: => 
           groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groups_collection)
-          groups_list_view.render().el
+          groups_list_view.render()
           groups_index_view = new Mycontacts.Views.GroupsIndex
             collection: @collection
             groups_collection: @groups_collection
@@ -141,7 +141,7 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
         success: => 
           console.log "Group collection loaded!"
           groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groups_collection)
-          groups_list_view.render().el
+          groups_list_view.render()
           model = @groups_collection.get(id)
           edit_group_view = new Mycontacts.Views.GroupEdit(model: model, collection: @groups_collection)
           $('#contacts_info').html(edit_group_view.render().el)
@@ -165,7 +165,7 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
         success: => 
           console.log "Group collection loaded!"
           groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groups_collection)
-          groups_list_view.render().el
+          groups_list_view.render()
           new_group_view = new Mycontacts.Views.GroupNew(collection: @groups_collection)
           $('#contacts_info').html(new_group_view.render().el)
         error: => console.log "Error while loading data!"
