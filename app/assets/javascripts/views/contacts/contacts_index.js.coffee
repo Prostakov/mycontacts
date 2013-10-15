@@ -42,9 +42,10 @@ class Mycontacts.Views.ContactsIndex extends Backbone.View
 
   searchFilter: ->
     if @$('#search_contact').val().length == 0
-      @$('li').removeClass('hidden')
+      @groupsFilter @
       return
-    @$('li').addClass('hidden')
+    @$('li').hide()
     search_results = @collection.search(@$('select#search_options').find(':selected').data('search_attr'),@$('#search_contact').val())
     for model in search_results
-      @$("li[data-id='#{model.get('id')}']").removeClass('hidden')
+      li = @$("li[data-id='#{model.get('id')}']")
+      li.show() unless li.is(":visible")

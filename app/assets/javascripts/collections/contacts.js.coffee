@@ -4,5 +4,5 @@ class Mycontacts.Collections.Contacts extends Backbone.Collection
 
   search: (attribute, value) ->
     return @filter (model) ->
+      model.get(attribute).toLowerCase() == value.toLowerCase()
       #value.indexOf(model.get(attribute)) != -1
-      model.get(attribute) == value
