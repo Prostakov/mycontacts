@@ -1,8 +1,9 @@
 <div class="contacts" id="contacts_nav">
-  <form id="search_contact">
-    <input type="text" placeholder="Search contact" />
-    <input type="submit" value="Search" style="display:none" />
-  </form>
+  <input id="search_contact" type="text" placeholder="Search Contact" />
+  <select id="search_options">
+    <option data-search_attr="first_name">By First Name</option>
+    <option data-search_attr="last_name">By Last Name</option>
+  </select>
   <div>
     <select id="change_group">
       <option data-id="0">All Contacts</option>

@@ -5,6 +5,7 @@ class Mycontacts.Views.ContactsIndex extends Backbone.View
     'click #create_contact': 'createContact'
     'click #show_groups': 'showGroups'
     'change select#change_group': 'groupsFilter'
+    'change #search_contact': 'searchFilter'
 
   initialize: ->
     @collection.on('add', @appendContact)
@@ -33,8 +34,17 @@ class Mycontacts.Views.ContactsIndex extends Backbone.View
     id = @$('select#change_group').find(':selected').data('id')
     @$('li').show()
     return if id == 0
-    @collection.each(@filterModels)
+    @collection.each(@filterModelsViaGroups)
 
-  filterModels: (model) =>
+  filterModelsViaGroups: (model) =>
     unless model.get('group_id') == @$('select#change_group').find(':selected').data('id')
       @$("li[data-id='#{model.get('id')}']").hide()
+
+  searchFilter: ->
+    if @$('#search_contact').val().length == 0
+      @$('li').removeClass('hidden')
+      return
+    @$('li').addClass('hidden')
+    search_results = @collection.search(@$('select#search_options').find(':selected').data('search_attr'),@$('#search_contact').val())
+    for model in search_results
+      @$("li[data-id='#{model.get('id')}']").removeClass('hidden')

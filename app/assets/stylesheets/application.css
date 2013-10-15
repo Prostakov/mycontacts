@@ -45,6 +45,9 @@ button.manage_button {
 a.sign_out:hover{
 	color: red;
 }
+.hidden {
+	display: none;
+}
 .notice {
 	display: block;
 	cursor: pointer;
