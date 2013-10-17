@@ -5,7 +5,6 @@ window.Mycontacts =
   Routers: {}
   initialize: -> 
     new Mycontacts.Routers.Contacts()
-    Backbone.history.start()
 
 $(document).ready ->
   notice_paragraph = $('p.notice')
