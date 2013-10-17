@@ -20,6 +20,6 @@ class Mycontacts.Views.GroupEdit extends Backbone.View
       success: (model, response, options) =>
       	@collection.set model,
           remove: false
-      	Backbone.history.navigate("groups", true)
+      	Backbone.history.navigate("contacts/groups", true)
       error: =>
       	console.log "Error!"

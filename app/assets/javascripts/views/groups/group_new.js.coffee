@@ -17,6 +17,6 @@ class Mycontacts.Views.GroupNew extends Backbone.View
   	@collection.create attr,
   	  wait: true
   	  success: (model, response, options) =>
-  	  	Backbone.history.navigate("groups", true)
+  	  	Backbone.history.navigate("contacts/groups", true)
   	  error: =>
   	  	alert "Error!"

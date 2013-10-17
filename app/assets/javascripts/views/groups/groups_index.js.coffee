@@ -14,4 +14,4 @@ class Mycontacts.Views.GroupsIndex extends Backbone.View
     @$('ul').append(view.render().el)
 
   createGroup: ->
-  	Backbone.history.navigate("groups/new", true)
+  	Backbone.history.navigate("contacts/groups/new", true)

@@ -28,7 +28,7 @@ class Mycontacts.Views.ContactsIndex extends Backbone.View
     Backbone.history.navigate("contacts/new", true)
 
   showGroups: ->
-    Backbone.history.navigate("groups", true)
+    Backbone.history.navigate("contacts/groups", true)
 
   groupsFilter: ->
     id = @$('select#change_group').find(':selected').data('id')

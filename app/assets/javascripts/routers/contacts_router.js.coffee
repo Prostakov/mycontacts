@@ -3,11 +3,11 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
     '': 'redirectToIndex'
     'contacts': 'index'
     'contacts/new': 'createContact'
+    'contacts/groups': 'showGroups'
+    'contacts/groups/new': 'createGroup'
+    'contacts/groups/:id/edit': 'editGroup'
     'contacts/:id': 'showContact'
     'contacts/:id/edit': 'editContact'
-    'groups/:id/edit': 'editGroup'
-    'groups/new': 'createGroup'
-    'groups': 'showGroups'
 
   initialize: ->
     @collection = new Mycontacts.Collections.Contacts()

@@ -16,7 +16,7 @@ class Mycontacts.Views.Group extends Backbone.View
     $(@el).remove()
 
   editGroup: ->
-  	Backbone.history.navigate("groups/#{@model.get('id')}/edit", true)
+  	Backbone.history.navigate("contacts/groups/#{@model.get('id')}/edit", true)
 
   destroyGroup: ->
     dialog = $('<div></div>').appendTo(document.body).html('<div><h4>Are you sure?</h4></div>')
