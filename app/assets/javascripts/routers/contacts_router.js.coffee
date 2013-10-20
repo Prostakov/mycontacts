@@ -10,6 +10,8 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
     'contacts/:id/edit': 'editContact'
 
   initialize: ->
+    @contactsLength = $('#main_container').data('contacts')
+    @groupsLength = $('#main_container').data('groups')
     @collection = new Mycontacts.Collections.Contacts()
     @groupsCollection = new Mycontacts.Collections.Groups()
     @collection.fetch
@@ -21,21 +23,37 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
   redirectToIndex: ->
     Backbone.history.navigate("contacts", true)
 
+  contactsCollectionIsLoaded: =>
+    if @collection.length == @contactsLength
+      return true
+    else
+      return false
+
+  groupsCollectionIsLoaded: =>
+    if @groupsCollection.length == @groupsLength
+      return true
+    else
+      return false
+
   index: ->
     # Rendering contacts index
-    view = new Mycontacts.Views.ContactsIndex(collection: @collection)
-    $('#main_container').html(view.render().el)
+    if @contactsCollectionIsLoaded
+      view = new Mycontacts.Views.ContactsIndex(collection: @collection)
+      $('#main_container').html(view.render().el)
     # Rendering list of groups
-    groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groupsCollection)
-    groups_list_view.render()        
+    if @groupsCollectionIsLoaded
+      groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groupsCollection)
+      groups_list_view.render()        
 
   showContact: (id) ->
     # Rendering contacts index
-    view = new Mycontacts.Views.ContactsIndex(collection: @collection)
-    $('#main_container').html(view.render().el)
+    if @contactsCollectionIsLoaded
+      view = new Mycontacts.Views.ContactsIndex(collection: @collection)
+      $('#main_container').html(view.render().el)
     # Rendering list of groups
-    groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groupsCollection)
-    groups_list_view.render()
+    if @groupsCollectionIsLoaded
+      groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groupsCollection)
+      groups_list_view.render()
     # Rendering show action for a contact
     model = @collection.get(id)
     show_contact_view = new Mycontacts.Views.ContactShow
@@ -46,22 +64,26 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
 
   createContact: ->
     # Rendering contacts index
-    view = new Mycontacts.Views.ContactsIndex(collection: @collection)
-    $('#main_container').html(view.render().el)
+    if @contactsCollectionIsLoaded
+      view = new Mycontacts.Views.ContactsIndex(collection: @collection)
+      $('#main_container').html(view.render().el)
     # Rendering list of groups
-    groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groupsCollection)
-    groups_list_view.render()
+    if @groupsCollectionIsLoaded
+      groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groupsCollection)
+      groups_list_view.render()
     # Rendering create action for a contact
     new_contact_view = new Mycontacts.Views.ContactNew(collection: @collection)
     $('#contacts_info').html(new_contact_view.render().el)
 
   editContact: (id) ->
     # Rendering contacts index
-    view = new Mycontacts.Views.ContactsIndex(collection: @collection)
-    $('#main_container').html(view.render().el)
+    if @contactsCollectionIsLoaded
+      view = new Mycontacts.Views.ContactsIndex(collection: @collection)
+      $('#main_container').html(view.render().el)
     # Rendering list of groups
-    groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groupsCollection)
-    groups_list_view.render()
+    if @groupsCollectionIsLoaded
+      groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groupsCollection)
+      groups_list_view.render()
     # Rendering edit action for a contact
     model = @collection.get(id)
     edit_contact_view = new Mycontacts.Views.ContactEdit(model: model, collection: @collection)
@@ -69,11 +91,13 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
 
   showGroups: ->
     # Rendering contacts index
-    view = new Mycontacts.Views.ContactsIndex(collection: @collection)
-    $('#main_container').html(view.render().el)
+    if @contactsCollectionIsLoaded
+      view = new Mycontacts.Views.ContactsIndex(collection: @collection)
+      $('#main_container').html(view.render().el)
     # Rendering list of groups
-    groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groupsCollection)
-    groups_list_view.render()
+    if @groupsCollectionIsLoaded
+      groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groupsCollection)
+      groups_list_view.render()
     # Rendering index action for groups
     groups_index_view = new Mycontacts.Views.GroupsIndex
       collection: @collection
@@ -82,11 +106,13 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
 
   editGroup: (id) ->
     # Rendering contacts index
-    view = new Mycontacts.Views.ContactsIndex(collection: @collection)
-    $('#main_container').html(view.render().el)
+    if @contactsCollectionIsLoaded
+      view = new Mycontacts.Views.ContactsIndex(collection: @collection)
+      $('#main_container').html(view.render().el)
     # Rendering list of groups
-    groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groupsCollection)
-    groups_list_view.render()
+    if @groupsCollectionIsLoaded
+      groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groupsCollection)
+      groups_list_view.render()
     # Rendering edit action for group
     model = @groupsCollection.get(id)
     edit_group_view = new Mycontacts.Views.GroupEdit(model: model, collection: @groupsCollection)
@@ -94,11 +120,13 @@ class Mycontacts.Routers.Contacts extends Backbone.Router
  
   createGroup: ->
     # Rendering contacts index
-    view = new Mycontacts.Views.ContactsIndex(collection: @collection)
-    $('#main_container').html(view.render().el)
+    if @contactsCollectionIsLoaded
+      view = new Mycontacts.Views.ContactsIndex(collection: @collection)
+      $('#main_container').html(view.render().el)
     # Rendering list of groups
-    groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groupsCollection)
-    groups_list_view.render()
+    if @groupsCollectionIsLoaded
+      groups_list_view = new Mycontacts.Views.GroupsListIndex(collection: @groupsCollection)
+      groups_list_view.render()
     # Rendering create action for groups
     new_group_view = new Mycontacts.Views.GroupNew(collection: @groupsCollection)
     $('#contacts_info').html(new_group_view.render().el)
